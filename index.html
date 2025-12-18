@@ -4,9 +4,111 @@
   <meta charset="UTF-8">
   <title>AKA Industrial Group – France</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: #111;
+    }
+
+    header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 48px;
+      z-index: 10;
+    }
+
+    header .logo {
+      font-weight: 700;
+      font-size: 18px;
+      color: white;
+    }
+
+    header nav a {
+      margin-left: 32px;
+      text-decoration: none;
+      color: white;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .hero {
+      height: 100vh;
+      background: url("hero.jpg") center center / cover no-repeat;
+      position: relative;
+      display: flex;
+      align-items: center;
+      padding-left: 80px;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.35);
+    }
+
+    .hero-content {
+      position: relative;
+      max-width: 640px;
+      color: white;
+    }
+
+    .hero-content h1 {
+      font-size: 48px;
+      line-height: 1.1;
+      margin-bottom: 24px;
+    }
+
+    .hero-content p {
+      font-size: 18px;
+      margin-bottom: 32px;
+    }
+
+    .hero-content a {
+      display: inline-block;
+      padding: 14px 32px;
+      background: white;
+      color: #111;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      text-transform: uppercase;
+    }
+  </style>
 </head>
+
 <body>
-  <h1>AKA Industrial Group – France</h1>
-  <p>Site en construction.</p>
+
+<header>
+  <div class="logo">AKA</div>
+  <nav>
+    <a href="#">À propos</a>
+    <a href="#">Expertises</a>
+    <a href="#">Contact</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-content">
+    <h1>Industrial manufacturing<br>you can rely on</h1>
+    <p>Franco-Chinese industrial group financing and piloting dedicated production capacities for European manufacturers.</p>
+    <a href="#">Nous contacter</a>
+  </div>
+</section>
+
 </body>
 </html>
