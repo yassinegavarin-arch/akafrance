@@ -1,114 +1,185 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <title>AKA Industrial Group – France</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      color: #111;
-    }
-
-    header {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 64px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 48px;
-      z-index: 10;
-    }
-
-    header .logo {
-      font-weight: 700;
-      font-size: 18px;
-      color: white;
-    }
-
-    header nav a {
-      margin-left: 32px;
-      text-decoration: none;
-      color: white;
-      font-size: 14px;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-
-    .hero {
-      height: 100vh;
-      background: url("hero.jpg") center center / cover no-repeat;
-      position: relative;
-      display: flex;
-      align-items: center;
-      padding-left: 80px;
-    }
-
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,0.35);
-    }
-
-    .hero-content {
-      position: relative;
-      max-width: 640px;
-      color: white;
-    }
-
-    .hero-content h1 {
-      font-size: 48px;
-      line-height: 1.1;
-      margin-bottom: 24px;
-    }
-
-    .hero-content p {
-      font-size: 18px;
-      margin-bottom: 32px;
-    }
-
-    .hero-content a {
-      display: inline-block;
-      padding: 14px 32px;
-      background: white;
-      color: #111;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 14px;
-      text-transform: uppercase;
-    }
-  </style>
-</head>
-
 <body>
 
 <header>
   <div class="logo">AKA</div>
   <nav>
-    <a href="#">À propos</a>
-    <a href="#">Expertises</a>
-    <a href="#">Contact</a>
+    <a href="#apropos">À propos</a>
+    <a href="#services">Services</a>
+    <a href="#equipe">Équipe</a>
+    <a href="#contact">Contact</a>
   </nav>
 </header>
 
-<section class="hero">
+<section class="hero" id="top">
   <div class="hero-content">
-    <h1>Industrial manufacturing<br>you can rely on</h1>
-    <p>Franco-Chinese industrial group financing and piloting dedicated production capacities for European manufacturers.</p>
-    <a href="#">Nous contacter</a>
+    <h1>FORCE &amp; QUALITE</h1>
+    <p class="hero-sub">INDUSTRIE CHINOISE, QUALITE FRANCAISE</p>
+    <div class="hero-cta">
+      <a class="btn" href="#contact">Nous contacter</a>
+    </div>
   </div>
 </section>
 
+<section class="section stats" aria-label="Chiffres clés">
+  <div class="wrap stats-grid">
+    <div class="stat">
+      <div class="stat-num">30</div>
+      <div class="stat-title">Années dʼExpertise</div>
+      <div class="stat-text">Plus de 30 ans dʼexpérience au service de lʼindustrie franco-chinoise.</div>
+    </div>
+
+    <div class="stat">
+      <div class="stat-num">2</div>
+      <div class="stat-title">Double Culture</div>
+      <div class="stat-text">Un pont entre la France et la Chine pour des solutions adaptées et fiables.</div>
+    </div>
+
+    <div class="stat">
+      <div class="stat-num">100%</div>
+      <div class="stat-title">Satisfaction Garantie</div>
+      <div class="stat-text">Qualité assurée grâce à des contrôles stricts et un suivi rigoureux.</div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="apropos">
+  <div class="wrap two-col">
+    <div>
+      <h2>Qui Sommes-Nous ?</h2>
+      <p>Chez AKA France, nous sommes une équipe dévouée de 5 experts, passionnés par lʼindustrie franco-chinoise et la qualité.</p>
+      <p>Nous agissons comme votre interface technique, en garantissant un suivi de production impeccable et un support client réactif. Grâce à notre présence historique en Chine, nous comprenons parfaitement les besoins de nos clients français. Nous sommes là pour vous accompagner de A à Z, de lʼétude technique à la livraison finale.</p>
+      <p>Nous faisons le lien entre vos exigences et les capacités de nos usines partenaires, tout en veillant à la qualité et à la conformité de chaque étape. Avec nous, vous bénéficiez dʼune expertise locale et dʼune approche personnalisée.</p>
+      <div class="callout">
+        <div class="callout-title">Contactez-Nous Maintenant</div>
+        <div class="callout-text"><strong>Appelez-Nous :</strong> 02 40 00 00 00</div>
+      </div>
+    </div>
+    <div class="card placeholder">
+      <div class="placeholder-title">Zone visuelle</div>
+      <div class="placeholder-text">Ici tu mettras une photo atelier, une carte, ou une image de contrôle qualité.</div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="services">
+  <div class="wrap">
+    <h2>Nos Services</h2>
+    <div class="grid services-grid">
+      <div class="service"><h3>Mécanosoudure</h3><p>Fabrication de structures en acier et aluminium, avec un contrôle qualité rigoureux de chaque soudure.</p></div>
+      <div class="service"><h3>Injection Plastique</h3><p>Production de pièces précises en mono et multicavités, utilisant des matières techniques de haute qualité.</p></div>
+      <div class="service"><h3>Usinage CNC</h3><p>Usinage de haute précision pour des pièces complexes, garantissant des tolérances strictes et une finition impeccable.</p></div>
+      <div class="service"><h3>Peinture Industrielle</h3><p>Application de traitements de surface et peinture époxy, assurant durabilité et protection contre la corrosion.</p></div>
+      <div class="service"><h3>Assemblage Final</h3><p>Assemblage de pièces et sous-ensembles, suivi de tests rigoureux pour garantir la qualité et la fonctionnalité.</p></div>
+      <div class="service"><h3>Contrôle Qualité</h3><p>Suivi des non-conformités, audits réguliers et traçabilité pour assurer une qualité optimale à chaque étape.</p></div>
+    </div>
+    <div class="center">
+      <a class="btn btn-outline" href="#contact">En Savoir Plus</a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="equipe">
+  <div class="wrap">
+    <h2>Notre Équipe</h2>
+    <p class="lead">Chez AKA France, notre équipe est composée de professionnels passionnés et expérimentés. Ensemble, nous offrons des solutions adaptées à vos besoins industriels.</p>
+
+    <div class="grid team-grid">
+      <div class="member">
+        <div class="avatar"></div>
+        <div class="member-name">Jean Dupont</div>
+        <div class="member-role">Directeur Technique</div>
+      </div>
+      <div class="member">
+        <div class="avatar"></div>
+        <div class="member-name">Sophie Martin</div>
+        <div class="member-role">Responsable Qualité</div>
+      </div>
+      <div class="member">
+        <div class="avatar"></div>
+        <div class="member-name">Marc Lefèvre</div>
+        <div class="member-role">Chargé de Sourcing</div>
+      </div>
+      <div class="member">
+        <div class="avatar"></div>
+        <div class="member-name">Claire Bernard</div>
+        <div class="member-role">Assistante Clientèle</div>
+      </div>
+    </div>
+
+    <div class="center">
+      <a class="btn btn-outline" href="#contact">Rencontrez notre Équipe</a>
+    </div>
+  </div>
+</section>
+
+<section class="section testimonials">
+  <div class="wrap">
+    <h2>Témoignages Clients</h2>
+
+    <div class="grid testi-grid">
+      <div class="testi">
+        <p class="quote">AKA France a transformé notre production avec efficacité. Leur expertise et leur suivi rigoureux nous ont permis d’atteindre nos objectifs de qualité et de délais sans compromis.</p>
+        <div class="author">Pierre L.</div>
+      </div>
+      <div class="testi">
+        <p class="quote">Un partenaire fiable pour nos projets industriels. Leur connaissance des marchés français et chinois a été un atout précieux pour notre croissance et notre compétitivité.</p>
+        <div class="author">Sophie G.</div>
+      </div>
+      <div class="testi">
+        <p class="quote">Excellente communication et service à la clientèle. Ils ont toujours répondu rapidement à nos demandes, rendant notre collaboration fluide et agréable à chaque étape du projet.</p>
+        <div class="author">Marc D.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section contact" id="contact">
+  <div class="wrap two-col">
+    <div>
+      <h2>Contactez-Nous pour Vos Projets</h2>
+      <p class="lead">Décris ton besoin, on revient vers toi rapidement avec une approche claire et industrielle.</p>
+      <div class="callout">
+        <div class="callout-title">FREE Consultation</div>
+        <div class="callout-text"><strong>Call:</strong> 555 555 5555</div>
+      </div>
+    </div>
+
+    <form class="form card" action="#" method="post">
+      <div class="form-row">
+        <label>First Name<span class="req">*</span></label>
+        <input type="text" name="first_name" required>
+      </div>
+
+      <div class="form-row">
+        <label>Last Name<span class="req">*</span></label>
+        <input type="text" name="last_name" required>
+      </div>
+
+      <div class="form-row">
+        <label>Phone<span class="req">*</span></label>
+        <input type="tel" name="phone" required>
+      </div>
+
+      <div class="form-row">
+        <label>Email<span class="req">*</span></label>
+        <input type="email" name="email" required>
+      </div>
+
+      <div class="form-row">
+        <label>Message</label>
+        <textarea name="message" rows="5"></textarea>
+      </div>
+
+      <button class="btn" type="submit">Submit</button>
+    </form>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <div>AKA France</div>
+    <div><a href="#top">Retour en haut</a></div>
+  </div>
+</footer>
+
 </body>
-</html>
