@@ -2,383 +2,368 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>AKA France</title>
 
   <link rel="icon" type="image/png" href="favicon.png" />
 
   <style>
     :root{
-      --bg:#0b0d10;
-      --ink:#0f1216;
-      --paper:#ffffff;
+      --bg:#ffffff;
+      --text:#111111;
       --muted:#6b7280;
-      --muted2:#9aa3af;
-      --accent:#5b7a3c;
-      --card:#0f141a;
-      --line:rgba(255,255,255,.12);
-      --shadow: 0 20px 60px rgba(0,0,0,.35);
-      --radius:16px;
-      --wrap:1120px;
+      --brand:#6b7b3a;
+      --brand-dark:#2f3a16;
+      --btn:#6b7b3a;
+      --btn-text:#ffffff;
+      --card:#ffffff;
+      --line:#e5e7eb;
+      --shadow: 0 14px 40px rgba(0,0,0,.12);
+      --max: 1120px;
     }
 
-    *{box-sizing:border-box;margin:0;padding:0}
-    html{scroll-behavior:smooth}
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
     body{
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Helvetica Neue", Helvetica, "Apple Color Emoji","Segoe UI Emoji";
-      color:var(--paper);
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color:var(--text);
       background:var(--bg);
-      line-height:1.55;
     }
 
-    a{color:inherit;text-decoration:none}
-    img{max-width:100%;display:block}
-
+    a{ color:inherit; }
     .wrap{
-      width:min(var(--wrap), calc(100% - 48px));
-      margin:0 auto;
+      width: min(var(--max), calc(100% - 48px));
+      margin: 0 auto;
     }
 
     header{
-      position:fixed;
-      top:0;left:0;right:0;
-      z-index:50;
+      position:absolute;
+      top:0;
+      left:0;
+      right:0;
+      z-index:20;
       height:64px;
       display:flex;
       align-items:center;
-      background:rgba(0,0,0,.10);
-      backdrop-filter:saturate(140%) blur(10px);
-      border-bottom:1px solid rgba(255,255,255,.06);
     }
-    .head{
-      width:min(var(--wrap), calc(100% - 48px));
-      margin:0 auto;
+    .header-inner{
+      width: min(var(--max), calc(100% - 48px));
+      margin: 0 auto;
       display:flex;
       align-items:center;
       justify-content:space-between;
       gap:24px;
     }
-    .brand{
+
+    .brandlock{
       display:flex;
       align-items:center;
       gap:14px;
-      min-width:220px;
+      min-width: 220px;
     }
-    .brand img{
-      width:40px;
-      height:40px;
-      border-radius:10px;
-      box-shadow: 0 8px 20px rgba(0,0,0,.25);
+    .brandlock .logo{
+      width:34px;
+      height:34px;
+      border-radius:8px;
+      background: rgba(0,0,0,.18);
+      display:grid;
+      place-items:center;
+      font-weight:800;
+      letter-spacing:.04em;
     }
-    .brand .name{
+    .brandlock .name{
       font-weight:700;
       letter-spacing:.02em;
-      font-size:16px;
-      text-transform:uppercase;
     }
+
     nav{
       display:flex;
       align-items:center;
-      gap:28px;
+      gap:26px;
       font-size:13px;
-      text-transform:uppercase;
       letter-spacing:.12em;
-      color:rgba(255,255,255,.92);
+      text-transform:uppercase;
     }
-    nav a{opacity:.9}
-    nav a:hover{opacity:1}
+    nav a{
+      text-decoration:none;
+      opacity:.92;
+    }
+    nav a:hover{ opacity:1; }
 
     .hero{
-      min-height:100vh;
-      display:grid;
-      place-items:center;
       position:relative;
-      overflow:hidden;
-      background:
-        linear-gradient(180deg, rgba(0,0,0,.25), rgba(0,0,0,.55)),
-        url("hero.jpg") center/cover no-repeat;
+      min-height: 100vh;
+      display:flex;
+      align-items:center;
+      background: url("hero.jpg") center center / cover no-repeat;
+      color:#ffffff;
     }
-    .hero::after{
+    .hero::before{
       content:"";
       position:absolute;
       inset:0;
-      background:radial-gradient(900px 500px at 50% 35%, rgba(255,255,255,.06), rgba(0,0,0,0));
-      pointer-events:none;
+      background: rgba(0,0,0,.30);
     }
-
-    .hero-inner{
+    .hero .wrap{
       position:relative;
-      width:min(var(--wrap), calc(100% - 48px));
-      padding-top:90px;
-      padding-bottom:70px;
+      padding: 140px 0 90px;
       text-align:center;
     }
-    .hero h1{
-      font-size:clamp(44px, 6vw, 92px);
+
+    .kicker{
+      font-size:14px;
+      letter-spacing:.22em;
+      text-transform:uppercase;
+      opacity:.9;
+      margin: 0 0 14px;
+    }
+    h1{
+      margin: 0 0 14px;
+      font-size: clamp(44px, 6.2vw, 92px);
       letter-spacing:.08em;
       text-transform:uppercase;
-      font-weight:800;
-      color:#e7f0d9;
-      text-shadow: 0 20px 60px rgba(0,0,0,.55);
-    }
-    .hero .sub{
-      margin-top:14px;
-      font-size:clamp(14px, 1.7vw, 18px);
-      text-transform:uppercase;
-      letter-spacing:.22em;
-      color:rgba(255,255,255,.85);
-    }
-    .hero .tagline{
-      margin:22px auto 0;
-      max-width:860px;
-      color:rgba(255,255,255,.82);
-      font-size:16px;
-    }
-    .hero .cta{
-      margin-top:28px;
-      display:flex;
-      justify-content:center;
-      gap:14px;
-      flex-wrap:wrap;
-    }
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      height:48px;
-      padding:0 22px;
-      border-radius:999px;
+      line-height:1.02;
       font-weight:700;
+    }
+    .hero-sub{
+      margin: 0 0 26px;
+      font-size: clamp(16px, 2.1vw, 22px);
+      letter-spacing:.18em;
       text-transform:uppercase;
-      letter-spacing:.12em;
-      font-size:12px;
-      border:1px solid rgba(255,255,255,.20);
-      background:rgba(0,0,0,.20);
-      color:#fff;
+      opacity:.95;
     }
-    .btn:hover{border-color:rgba(255,255,255,.40)}
-    .btn.primary{
-      background:var(--accent);
-      border-color:rgba(0,0,0,.10);
-      color:#fff;
-    }
-    .btn.primary:hover{filter:brightness(1.05)}
-    .btn.light{
-      background:rgba(255,255,255,.92);
-      color:#0f1216;
-      border-color:rgba(255,255,255,.92);
+    .hero-tagline{
+      margin: 0 auto 34px;
+      max-width: 900px;
+      font-size: 16px;
+      line-height:1.55;
+      opacity:.92;
     }
 
+    .btn{
+      display:inline-block;
+      padding: 14px 28px;
+      border-radius: 0;
+      background: var(--btn);
+      color: var(--btn-text);
+      text-decoration:none;
+      font-weight:700;
+      letter-spacing:.10em;
+      text-transform:uppercase;
+      font-size: 13px;
+      border: 1px solid rgba(255,255,255,.0);
+    }
+    .btn:hover{ filter:brightness(1.05); }
+
     .section{
-      padding:84px 0;
-      background:var(--bg);
+      padding: 80px 0;
     }
-    .section.alt{
-      background:#0a0c0f;
-    }
-    .h2{
-      font-size:34px;
+    .section h2{
+      margin: 0 0 18px;
+      font-size: 32px;
       letter-spacing:.02em;
-      margin-bottom:10px;
     }
     .lead{
-      color:rgba(255,255,255,.80);
-      max-width:920px;
-      margin-top:10px;
+      margin: 0 0 28px;
+      color: var(--muted);
+      max-width: 760px;
+      line-height:1.65;
     }
 
     .stats{
-      padding-top:60px;
-      padding-bottom:60px;
+      padding: 54px 0;
+      border-bottom: 1px solid var(--line);
     }
     .stats-grid{
       display:grid;
-      grid-template-columns:repeat(3, 1fr);
-      gap:22px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 26px;
     }
     .stat{
-      background:rgba(255,255,255,.04);
-      border:1px solid rgba(255,255,255,.08);
-      border-radius:var(--radius);
-      padding:24px;
-      box-shadow: var(--shadow);
+      padding: 26px 22px;
+      border: 1px solid var(--line);
+      background: var(--card);
     }
     .stat-num{
-      font-size:44px;
-      font-weight:900;
+      font-size: 44px;
+      font-weight:800;
       letter-spacing:.02em;
-      color:#e7f0d9;
+      margin-bottom: 8px;
+      color: var(--brand-dark);
     }
     .stat-title{
-      margin-top:6px;
       font-weight:800;
-      text-transform:uppercase;
-      letter-spacing:.10em;
-      font-size:12px;
-      color:rgba(255,255,255,.85);
+      margin-bottom: 10px;
     }
     .stat-text{
-      margin-top:12px;
-      color:rgba(255,255,255,.78);
+      margin:0;
+      color: var(--muted);
+      line-height:1.6;
     }
 
     .two-col{
       display:grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap:28px;
+      grid-template-columns: 1.25fr .85fr;
+      gap: 34px;
       align-items:start;
     }
+
     .card{
-      background:rgba(255,255,255,.04);
-      border:1px solid rgba(255,255,255,.08);
-      border-radius:var(--radius);
-      padding:22px;
+      border: 1px solid var(--line);
+      background: var(--card);
       box-shadow: var(--shadow);
+      padding: 22px;
     }
+
     .callout{
-      margin-top:18px;
-      border-left:4px solid var(--accent);
-      padding:14px 16px;
-      background:rgba(91,122,60,.12);
-      border-radius:12px;
+      margin-top: 18px;
+      padding: 18px 18px;
+      border-left: 4px solid var(--brand);
+      background: #f7f8f5;
     }
-    .callout .t{
+    .callout-title{
       font-weight:800;
-      text-transform:uppercase;
-      letter-spacing:.10em;
-      font-size:12px;
-    }
-    .callout .p{
-      margin-top:8px;
-      color:rgba(255,255,255,.90);
+      margin-bottom: 6px;
     }
 
     .grid{
       display:grid;
-      gap:18px;
+      gap: 18px;
     }
     .services-grid{
-      margin-top:22px;
-      grid-template-columns:repeat(3, 1fr);
+      grid-template-columns: repeat(3, 1fr);
+      margin-top: 22px;
+    }
+    .service{
+      border: 1px solid var(--line);
+      padding: 18px 18px;
+      background: var(--card);
     }
     .service h3{
-      font-size:16px;
-      font-weight:900;
-      margin-bottom:8px;
-      letter-spacing:.02em;
+      margin: 0 0 10px;
+      font-size: 18px;
     }
     .service p{
-      color:rgba(255,255,255,.78);
+      margin:0;
+      color: var(--muted);
+      line-height:1.6;
     }
 
     .center{
-      display:flex;
-      justify-content:center;
-      margin-top:26px;
+      text-align:center;
+      margin-top: 28px;
+    }
+    .btn-outline{
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--line);
     }
 
     .team-grid{
-      margin-top:22px;
-      grid-template-columns:repeat(4, 1fr);
+      grid-template-columns: repeat(4, 1fr);
+      margin-top: 22px;
     }
     .member{
+      border: 1px solid var(--line);
+      background: var(--card);
+      padding: 18px;
       text-align:center;
-      padding:20px;
     }
     .avatar{
-      width:78px;height:78px;
-      border-radius:999px;
-      margin:0 auto 12px;
-      background:linear-gradient(135deg, rgba(255,255,255,.14), rgba(255,255,255,.03));
-      border:1px solid rgba(255,255,255,.10);
+      width: 92px;
+      height: 92px;
+      border-radius: 999px;
+      background: #f0f2f5;
+      margin: 0 auto 14px;
+      border: 1px solid var(--line);
     }
     .member-name{
-      font-weight:900;
-      letter-spacing:.02em;
+      font-weight:800;
+      margin-bottom: 6px;
     }
     .member-role{
-      margin-top:6px;
-      color:rgba(255,255,255,.75);
-      font-size:13px;
+      color: var(--muted);
+      font-size: 14px;
     }
 
     .testi-grid{
-      margin-top:22px;
-      grid-template-columns:repeat(3, 1fr);
+      grid-template-columns: repeat(3, 1fr);
+      margin-top: 22px;
+    }
+    .testi{
+      border: 1px solid var(--line);
+      background: var(--card);
+      padding: 18px;
     }
     .quote{
-      color:rgba(255,255,255,.82);
+      margin:0 0 14px;
+      color: var(--muted);
+      line-height:1.7;
     }
     .author{
-      margin-top:14px;
-      font-weight:900;
-      text-transform:uppercase;
-      letter-spacing:.10em;
-      font-size:12px;
-      color:rgba(255,255,255,.85);
+      font-weight:800;
     }
 
-    form .row{
-      display:grid;
-      gap:8px;
-      margin-bottom:14px;
-    }
+    form .form-row{ margin-bottom: 14px; }
     label{
-      font-size:12px;
-      text-transform:uppercase;
-      letter-spacing:.10em;
-      color:rgba(255,255,255,.78);
+      display:block;
+      font-size: 13px;
+      font-weight:700;
+      margin-bottom: 6px;
     }
+    .req{ color:#b91c1c; }
     input, textarea{
       width:100%;
-      padding:12px 12px;
-      border-radius:12px;
-      border:1px solid rgba(255,255,255,.12);
-      background:rgba(0,0,0,.22);
-      color:#fff;
+      padding: 12px 12px;
+      border: 1px solid var(--line);
+      font: inherit;
       outline:none;
+      background:#fff;
     }
     input:focus, textarea:focus{
-      border-color:rgba(231,240,217,.55);
-      box-shadow:0 0 0 4px rgba(91,122,60,.22);
+      border-color: #c7cfb3;
+      box-shadow: 0 0 0 3px rgba(107,123,58,.18);
     }
-    .req{color:#ffd4d4}
+    button.btn{
+      cursor:pointer;
+    }
 
     footer{
-      padding:28px 0;
-      border-top:1px solid rgba(255,255,255,.08);
-      color:rgba(255,255,255,.72);
-      font-size:13px;
+      padding: 28px 0;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 14px;
     }
-    .foot{
+    .footer-inner{
       display:flex;
-      align-items:center;
       justify-content:space-between;
-      gap:18px;
-      flex-wrap:wrap;
+      gap: 16px;
+      align-items:center;
     }
-    .foot a{opacity:.9}
-    .foot a:hover{opacity:1}
+    .footer-inner a{
+      text-decoration:none;
+      color: var(--muted);
+    }
+    .footer-inner a:hover{ color: var(--text); }
 
     @media (max-width: 980px){
-      header{height:62px}
-      .brand{min-width:0}
-      nav{gap:18px}
-      .two-col{grid-template-columns:1fr}
-      .services-grid{grid-template-columns:1fr 1fr}
-      .team-grid{grid-template-columns:1fr 1fr}
-      .testi-grid{grid-template-columns:1fr}
-      .stats-grid{grid-template-columns:1fr}
-      .hero-inner{padding-top:92px}
+      header{ height: 60px; }
+      nav{ gap: 18px; }
+      .stats-grid{ grid-template-columns: 1fr; }
+      .two-col{ grid-template-columns: 1fr; }
+      .services-grid{ grid-template-columns: 1fr; }
+      .team-grid{ grid-template-columns: 1fr 1fr; }
+      .testi-grid{ grid-template-columns: 1fr; }
+      .hero .wrap{ padding: 130px 0 70px; }
     }
 
     @media (max-width: 560px){
-      header{position:sticky;background:rgba(0,0,0,.35)}
-      nav{display:none}
-      .hero .tagline{font-size:15px}
-      .services-grid{grid-template-columns:1fr}
-      .btn{width:100%}
-      .hero .cta{width:100%}
+      .header-inner{ width: calc(100% - 28px); }
+      .wrap{ width: calc(100% - 28px); }
+      nav{ display:none; }
+      .brandlock{ min-width: auto; }
+      .hero-tagline{ font-size: 15px; }
     }
   </style>
 </head>
@@ -386,13 +371,13 @@
 <body>
 
 <header>
-  <div class="head">
-    <a class="brand" href="#top" aria-label="Retour accueil">
-      <img src="favicon.png" alt="AKA" />
+  <div class="header-inner">
+    <a class="brandlock" href="#top" style="text-decoration:none;color:#fff">
+      <div class="logo">A</div>
       <div class="name">AKA France</div>
     </a>
 
-    <nav aria-label="Navigation principale">
+    <nav>
       <a href="#apropos">À propos</a>
       <a href="#services">Services</a>
       <a href="#equipe">Équipe</a>
@@ -402,166 +387,157 @@
 </header>
 
 <section class="hero" id="top">
-  <div class="hero-inner">
+  <div class="wrap">
+    <div class="kicker">Alliance industrielle</div>
     <h1>FORCE &amp; QUALITÉ</h1>
-    <div class="sub">INDUSTRIE CHINOISE, QUALITÉ FRANÇAISE</div>
-    <p class="tagline">
+    <p class="hero-sub">INDUSTRIE CHINOISE, QUALITÉ FRANÇAISE</p>
+    <p class="hero-tagline">
       30 ans de présence terrain en Chine. Une alliance industrielle structurée, financée et pilotée depuis la France.
     </p>
-    <div class="cta">
-      <a class="btn primary" href="#contact">Contactez nous</a>
-      <a class="btn light" href="#services">Voir nos services</a>
-    </div>
+    <a class="btn" href="#contact">Contactez nous</a>
   </div>
 </section>
 
-<section class="section stats alt" aria-label="Chiffres clés">
-  <div class="wrap">
-    <div class="stats-grid">
-      <div class="stat">
-        <div class="stat-num">30</div>
-        <div class="stat-title">Années de présence industrielle</div>
-        <div class="stat-text">Présence continue en Chine depuis plus de 30 ans, avec des investissements structurants et une connaissance terrain approfondie.</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">2</div>
-        <div class="stat-title">Double culture</div>
-        <div class="stat-text">Un pont opérationnel entre la France et la Chine pour cadrer les exigences, sécuriser l’exécution et éviter les malentendus.</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">100%</div>
-        <div class="stat-title">Exigence qualité</div>
-        <div class="stat-text">Contrôles, suivi et traitement des écarts, avec une logique industrielle orientée répétabilité et maîtrise du risque.</div>
-      </div>
+<section class="stats" aria-label="Chiffres clés">
+  <div class="wrap stats-grid">
+    <div class="stat">
+      <div class="stat-num">30</div>
+      <div class="stat-title">Années de présence industrielle</div>
+      <p class="stat-text">Présence continue en Chine, investissements structurants et connaissance terrain.</p>
+    </div>
+
+    <div class="stat">
+      <div class="stat-num">2</div>
+      <div class="stat-title">Double culture</div>
+      <p class="stat-text">Un pont opérationnel entre la France et la Chine, sans perte d’information ni compromis.</p>
+    </div>
+
+    <div class="stat">
+      <div class="stat-num">100%</div>
+      <div class="stat-title">Exécution maîtrisée</div>
+      <p class="stat-text">Contrôles, suivi, traçabilité et pilotage pour livrer conforme et répétable.</p>
     </div>
   </div>
 </section>
 
 <section class="section" id="apropos">
-  <div class="wrap">
-    <div class="two-col">
-      <div>
-        <div class="h2">Qui sommes nous ?</div>
-        <p class="lead">Chez AKA France, nous sommes une équipe de 5 experts dédiée à l’industrie franco chinoise.</p>
+  <div class="wrap two-col">
+    <div>
+      <h2>Qui sommes nous</h2>
+      <p class="lead">
+        Chez AKA France, nous sommes une équipe de 5 experts dédiée à l’industrie franco chinoise et à la qualité.
+      </p>
+      <p class="lead">
+        Depuis plus de 30 ans, nous structurons et pilotons une alliance d’outils industriels en Chine, historiquement bâtie avec des capitaux français et développée pour servir durablement les clients européens.
+      </p>
+      <p class="lead">
+        Nous intervenons comme interface technique et qualité. Nous cadrons le besoin, sécurisons l’industrialisation, suivons la production et assurons le contrôle, la traçabilité et la conformité jusqu’à la livraison finale.
+      </p>
 
-        <p style="margin-top:14px;color:rgba(255,255,255,.82);">
-          Depuis plus de 30 ans, nous structurons et pilotons une alliance d’outils industriels en Chine, historiquement bâtie avec des capitaux français et développée pour servir durablement les clients européens.
-        </p>
-
-        <p style="margin-top:12px;color:rgba(255,255,255,.82);">
-          Nous intervenons comme interface technique et qualité. Nous cadrons le besoin, sécurisons l’industrialisation, suivons la production et assurons le contrôle, la traçabilité et la conformité jusqu’à la livraison finale.
-        </p>
-
-        <p style="margin-top:12px;color:rgba(255,255,255,.82);">
-          Notre valeur repose sur la répétabilité, la maîtrise des risques et une exécution industrielle fiable, sans rupture entre les exigences françaises et les réalités de production chinoises.
-        </p>
-
-        <div class="callout">
-          <div class="t">Contactez nous maintenant</div>
-          <div class="p"><strong>Appelez nous :</strong> 02 40 00 00 00</div>
-        </div>
+      <div class="callout">
+        <div class="callout-title">Contactez nous maintenant</div>
+        <div>Appelez nous: <strong>02 40 00 00 00</strong></div>
       </div>
+    </div>
 
-      <div class="card">
-        <div class="h2" style="font-size:18px;margin-bottom:8px;">Zone visuelle</div>
-        <p style="color:rgba(255,255,255,.78);">
-          Place ici une photo d’atelier, une photo contrôle qualité, ou une image de pièces produites.
-        </p>
-        <p style="margin-top:12px;color:rgba(255,255,255,.78);">
-          Si tu veux un rendu premium, remplace ce bloc par une image et garde un texte très court.
-        </p>
+    <div class="card">
+      <div style="font-weight:800;margin-bottom:10px">Zone visuelle</div>
+      <div style="color:var(--muted);line-height:1.6">
+        Ici tu peux mettre une photo atelier, contrôle qualité, ou une carte France Chine.
       </div>
     </div>
   </div>
 </section>
 
-<section class="section alt" id="services">
+<section class="section" id="services">
   <div class="wrap">
-    <div class="h2">Nos services</div>
-    <p class="lead">Une exécution industrielle complète, avec cadrage technique, suivi de production et contrôle qualité.</p>
+    <h2>Nos services</h2>
+    <p class="lead">Un périmètre industriel complet, avec pilotage, contrôle et sécurisation.</p>
 
     <div class="grid services-grid">
-      <div class="card service">
+      <div class="service">
         <h3>Mécanosoudure</h3>
-        <p>Fabrication de structures acier et aluminium, avec un contrôle qualité rigoureux de chaque soudure.</p>
+        <p>Fabrication acier et aluminium, exigences de soudage, contrôles et suivi.</p>
       </div>
-      <div class="card service">
+      <div class="service">
         <h3>Injection plastique</h3>
-        <p>Production de pièces précises en mono et multicavités, avec matières techniques et suivi process.</p>
+        <p>Pièces techniques, mono et multicavités, matières contrôlées et répétabilité.</p>
       </div>
-      <div class="card service">
+      <div class="service">
         <h3>Usinage CNC</h3>
-        <p>Usinage de précision pour pièces complexes, tolérances strictes et finition maîtrisée.</p>
+        <p>Pièces complexes, tolérances strictes, maîtrise dimensionnelle et finitions.</p>
       </div>
-      <div class="card service">
+      <div class="service">
         <h3>Peinture industrielle</h3>
-        <p>Traitements de surface et peinture époxy, durabilité, protection corrosion et constance visuelle.</p>
+        <p>Traitements de surface, epoxy, durabilité, protection corrosion.</p>
       </div>
-      <div class="card service">
+      <div class="service">
         <h3>Assemblage final</h3>
-        <p>Assemblage de sous ensembles, contrôles et essais fonctionnels pour garantir la conformité.</p>
+        <p>Assemblage sous ensembles, tests fonctionnels, critères de conformité.</p>
       </div>
-      <div class="card service">
+      <div class="service">
         <h3>Contrôle qualité</h3>
-        <p>Suivi des écarts, actions correctives, audits et traçabilité pour sécuriser chaque étape.</p>
+        <p>Traçabilité, audits, suivi des non conformités, actions correctives.</p>
       </div>
     </div>
 
     <div class="center">
-      <a class="btn primary" href="#contact">En savoir plus</a>
+      <a class="btn btn-outline" href="#contact">En savoir plus</a>
     </div>
   </div>
 </section>
 
 <section class="section" id="equipe">
   <div class="wrap">
-    <div class="h2">Notre équipe</div>
-    <p class="lead">Une équipe resserrée et opérationnelle. Chaque rôle sert l’exécution, la qualité et la réactivité.</p>
+    <h2>Notre équipe</h2>
+    <p class="lead">
+      Une équipe expérimentée, orientée exécution, qui parle le langage de l’atelier et celui du client.
+    </p>
 
     <div class="grid team-grid">
-      <div class="card member">
+      <div class="member">
         <div class="avatar"></div>
         <div class="member-name">Jean Dupont</div>
         <div class="member-role">Directeur technique</div>
       </div>
-      <div class="card member">
+      <div class="member">
         <div class="avatar"></div>
         <div class="member-name">Sophie Martin</div>
         <div class="member-role">Responsable qualité</div>
       </div>
-      <div class="card member">
+      <div class="member">
         <div class="avatar"></div>
         <div class="member-name">Marc Lefèvre</div>
         <div class="member-role">Chargé de sourcing</div>
       </div>
-      <div class="card member">
+      <div class="member">
         <div class="avatar"></div>
         <div class="member-name">Claire Bernard</div>
-        <div class="member-role">Assistante clientèle</div>
+        <div class="member-role">Support clients</div>
       </div>
     </div>
 
     <div class="center">
-      <a class="btn" href="#contact">Rencontrez notre équipe</a>
+      <a class="btn btn-outline" href="#contact">Rencontrez notre équipe</a>
     </div>
   </div>
 </section>
 
-<section class="section alt" id="temoignages">
+<section class="section">
   <div class="wrap">
-    <div class="h2">Témoignages clients</div>
+    <h2>Témoignages clients</h2>
 
     <div class="grid testi-grid">
-      <div class="card">
-        <p class="quote">AKA France a transformé notre production avec efficacité. Leur expertise et leur suivi rigoureux nous ont permis d’atteindre nos objectifs de qualité et de délais sans compromis.</p>
+      <div class="testi">
+        <p class="quote">AKA France a transformé notre production avec efficacité. Leur suivi nous a permis d’atteindre nos objectifs qualité et délais.</p>
         <div class="author">Pierre L.</div>
       </div>
-      <div class="card">
-        <p class="quote">Un partenaire fiable pour nos projets industriels. Leur connaissance des marchés français et chinois a été un atout précieux pour notre croissance et notre compétitivité.</p>
+      <div class="testi">
+        <p class="quote">Un partenaire fiable. Leur compréhension France Chine a été un levier réel de compétitivité.</p>
         <div class="author">Sophie G.</div>
       </div>
-      <div class="card">
-        <p class="quote">Excellente communication et service client. Réponses rapides, suivi clair, collaboration fluide à chaque étape.</p>
+      <div class="testi">
+        <p class="quote">Communication claire, réactivité, exécution. Collaboration fluide à chaque étape.</p>
         <div class="author">Marc D.</div>
       </div>
     </div>
@@ -569,60 +545,55 @@
 </section>
 
 <section class="section" id="contact">
-  <div class="wrap">
-    <div class="two-col">
-      <div>
-        <div class="h2">Contactez nous pour vos projets</div>
-        <p class="lead">Décris ton besoin. On revient vers toi rapidement avec une approche claire et industrielle.</p>
+  <div class="wrap two-col">
+    <div>
+      <h2>Contactez nous</h2>
+      <p class="lead">
+        Décris ton besoin. On te répond avec une approche industrielle, claire et chiffrée.
+      </p>
 
-        <div class="callout">
-          <div class="t">Consultation</div>
-          <div class="p"><strong>Appelez :</strong> 02 40 00 00 00</div>
-        </div>
+      <div class="callout">
+        <div class="callout-title">Contact direct</div>
+        <div>Tel: <strong>02 40 00 00 00</strong></div>
+        <div>Email: <strong>contact@akafrance.com</strong></div>
+      </div>
+    </div>
 
-        <p style="margin-top:16px;color:rgba(255,255,255,.78);">
-          AKA France structure et pilote une alliance industrielle franco chinoise, avec une responsabilité directe sur l’exécution, le contrôle et le suivi.
-        </p>
+    <form class="card" action="#" method="post">
+      <div class="form-row">
+        <label>Prénom <span class="req">*</span></label>
+        <input type="text" name="first_name" required />
       </div>
 
-      <form class="card" action="#" method="post">
-        <div class="row">
-          <label>Prénom <span class="req">*</span></label>
-          <input type="text" name="first_name" required />
-        </div>
+      <div class="form-row">
+        <label>Nom <span class="req">*</span></label>
+        <input type="text" name="last_name" required />
+      </div>
 
-        <div class="row">
-          <label>Nom <span class="req">*</span></label>
-          <input type="text" name="last_name" required />
-        </div>
+      <div class="form-row">
+        <label>Téléphone <span class="req">*</span></label>
+        <input type="tel" name="phone" required />
+      </div>
 
-        <div class="row">
-          <label>Téléphone <span class="req">*</span></label>
-          <input type="tel" name="phone" required />
-        </div>
+      <div class="form-row">
+        <label>Email <span class="req">*</span></label>
+        <input type="email" name="email" required />
+      </div>
 
-        <div class="row">
-          <label>Email <span class="req">*</span></label>
-          <input type="email" name="email" required />
-        </div>
+      <div class="form-row">
+        <label>Message</label>
+        <textarea name="message" rows="5"></textarea>
+      </div>
 
-        <div class="row">
-          <label>Message</label>
-          <textarea name="message" rows="5"></textarea>
-        </div>
-
-        <button class="btn primary" type="submit" style="width:100%;">Envoyer</button>
-      </form>
-    </div>
+      <button class="btn" type="submit">Envoyer</button>
+    </form>
   </div>
 </section>
 
 <footer>
-  <div class="wrap foot">
+  <div class="wrap footer-inner">
     <div>AKA France</div>
-    <div>
-      <a href="#top">Retour en haut</a>
-    </div>
+    <div><a href="#top">Retour en haut</a></div>
   </div>
 </footer>
 
