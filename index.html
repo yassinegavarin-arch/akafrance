@@ -6,28 +6,30 @@
   <title>AKA France — Alliance Industrielle Franco-Chinoise</title>
   <link rel="icon" type="image/png" href="favicon.png">
   
-  <!-- Google Fonts -->
+  <!-- Google Fonts - Industrial style -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
   
   <style>
     :root {
-      --color-bg: #FDFBF7;
-      --color-bg-dark: #1a1915;
-      --color-text: #1a1915;
-      --color-text-light: #6b6860;
-      --color-brand: #6b7b3a;
-      --color-brand-light: #8a9c52;
-      --color-brand-dark: #4a5628;
-      --color-accent: #c9a227;
-      --color-cream: #f5f0e6;
-      --color-warm-white: #faf8f3;
-      --color-line: rgba(107, 123, 58, 0.15);
-      --color-line-dark: rgba(255,255,255,0.1);
+      --color-bg: #F5F3F0;
+      --color-bg-dark: #1C1917;
+      --color-text: #1C1917;
+      --color-text-light: #57534E;
+      --color-brand: #8B3A3A;
+      --color-brand-light: #A54A4A;
+      --color-brand-dark: #6B2D2D;
+      --color-accent: #C45C4C;
+      --color-warm: #D4A574;
+      --color-cream: #EBE6E0;
+      --color-warm-white: #FAF8F5;
+      --color-line: rgba(139, 58, 58, 0.15);
+      --color-line-dark: rgba(255,255,255,0.12);
       
-      --font-display: 'Cormorant Garamond', Georgia, serif;
-      --font-body: 'Outfit', system-ui, sans-serif;
+      --font-display: 'Bebas Neue', Impact, sans-serif;
+      --font-body: 'Barlow', system-ui, sans-serif;
+      --font-condensed: 'Barlow Condensed', sans-serif;
       
       --spacing-xs: 8px;
       --spacing-sm: 16px;
@@ -66,10 +68,10 @@
     }
 
     .section-label {
-      font-family: var(--font-body);
-      font-size: 11px;
+      font-family: var(--font-condensed);
+      font-size: 13px;
       font-weight: 600;
-      letter-spacing: 0.25em;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--color-brand);
       margin-bottom: var(--spacing-md);
@@ -81,17 +83,18 @@
     .section-label::before {
       content: '';
       width: 40px;
-      height: 1px;
+      height: 2px;
       background: var(--color-brand);
     }
 
     .section-title {
       font-family: var(--font-display);
-      font-size: clamp(36px, 5vw, 64px);
-      font-weight: 500;
-      line-height: 1.1;
+      font-size: clamp(40px, 5vw, 68px);
+      font-weight: 400;
+      line-height: 1.05;
       margin-bottom: var(--spacing-md);
-      letter-spacing: -0.02em;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
     }
 
     .section-desc {
@@ -113,23 +116,10 @@
     }
 
     header.scrolled {
-      background: rgba(253, 251, 247, 0.92);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      box-shadow: 0 1px 0 var(--color-line);
+      background: rgba(28, 25, 23, 0.75);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       padding: 14px 0;
-    }
-
-    header.scrolled .nav-link {
-      color: var(--color-text);
-    }
-
-    header.scrolled .logo-white {
-      opacity: 0;
-    }
-
-    header.scrolled .logo-dark {
-      opacity: 1;
     }
 
     .header-inner {
@@ -141,15 +131,21 @@
     .brand {
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 16px;
       text-decoration: none;
       position: relative;
     }
 
     .brand-logo {
-      width: 44px;
-      height: 44px;
+      width: 60px;
+      height: 60px;
       position: relative;
+      transition: all 0.4s ease;
+    }
+
+    header.scrolled .brand-logo {
+      width: 50px;
+      height: 50px;
     }
 
     .brand-logo img {
@@ -170,29 +166,37 @@
       opacity: 0;
     }
 
+    header.scrolled .logo-white {
+      opacity: 1;
+    }
+
+    header.scrolled .logo-dark {
+      opacity: 0;
+    }
+
     .brand-text {
       font-family: var(--font-display);
-      font-size: 22px;
-      font-weight: 600;
+      font-size: 28px;
       color: #fff;
-      letter-spacing: 0.02em;
-      transition: color 0.4s ease;
+      letter-spacing: 0.05em;
+      transition: all 0.4s ease;
     }
 
     header.scrolled .brand-text {
-      color: var(--color-text);
+      font-size: 24px;
     }
 
     nav {
       display: flex;
       align-items: center;
-      gap: 36px;
+      gap: 32px;
     }
 
     .nav-link {
-      font-size: 13px;
-      font-weight: 500;
-      letter-spacing: 0.08em;
+      font-family: var(--font-condensed);
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
       text-decoration: none;
       color: rgba(255,255,255,0.9);
@@ -206,7 +210,7 @@
       bottom: -4px;
       left: 0;
       width: 0;
-      height: 1px;
+      height: 2px;
       background: var(--color-brand);
       transition: width 0.3s ease;
     }
@@ -219,7 +223,8 @@
       padding: 12px 24px;
       background: var(--color-brand);
       color: #fff !important;
-      font-size: 12px;
+      font-family: var(--font-condensed);
+      font-size: 14px;
       font-weight: 600;
       letter-spacing: 0.1em;
       text-transform: uppercase;
@@ -263,59 +268,62 @@
       z-index: -1;
       background: linear-gradient(
         135deg,
-        rgba(26, 25, 21, 0.75) 0%,
-        rgba(26, 25, 21, 0.5) 50%,
-        rgba(26, 25, 21, 0.65) 100%
+        rgba(28, 25, 23, 0.8) 0%,
+        rgba(28, 25, 23, 0.55) 50%,
+        rgba(28, 25, 23, 0.7) 100%
       );
     }
 
     .hero-content {
       padding: 160px 0 100px;
       color: #fff;
-      max-width: 900px;
+      text-align: center;
+      max-width: 1000px;
+      margin: 0 auto;
     }
 
     .hero-kicker {
-      font-size: 12px;
+      font-family: var(--font-condensed);
+      font-size: 14px;
       font-weight: 600;
       letter-spacing: 0.3em;
       text-transform: uppercase;
-      color: var(--color-accent);
+      color: var(--color-warm);
       margin-bottom: var(--spacing-md);
       display: flex;
       align-items: center;
+      justify-content: center;
       gap: 16px;
     }
 
-    .hero-kicker::before {
+    .hero-kicker::before,
+    .hero-kicker::after {
       content: '';
-      width: 60px;
-      height: 1px;
-      background: var(--color-accent);
+      width: 50px;
+      height: 2px;
+      background: var(--color-warm);
     }
 
     .hero-title {
       font-family: var(--font-display);
-      font-size: clamp(52px, 8vw, 110px);
-      font-weight: 600;
+      font-size: clamp(60px, 10vw, 140px);
+      font-weight: 400;
       line-height: 0.95;
       letter-spacing: 0.04em;
       text-transform: uppercase;
-      margin-bottom: var(--spacing-md);
+      margin-bottom: var(--spacing-sm);
     }
 
     .hero-title span {
       display: block;
-      font-weight: 400;
-      font-style: italic;
-      letter-spacing: 0.02em;
       color: var(--color-accent);
     }
 
     .hero-subtitle {
-      font-size: 14px;
-      font-weight: 500;
-      letter-spacing: 0.2em;
+      font-family: var(--font-condensed);
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: 0.25em;
       text-transform: uppercase;
       opacity: 0.85;
       margin-bottom: var(--spacing-lg);
@@ -325,14 +333,15 @@
       font-size: 18px;
       line-height: 1.7;
       opacity: 0.9;
-      max-width: 600px;
-      margin-bottom: var(--spacing-lg);
+      max-width: 650px;
+      margin: 0 auto var(--spacing-lg);
     }
 
     .hero-actions {
       display: flex;
       gap: 16px;
       flex-wrap: wrap;
+      justify-content: center;
     }
 
     .btn {
@@ -340,10 +349,10 @@
       align-items: center;
       gap: 10px;
       padding: 16px 32px;
-      font-family: var(--font-body);
-      font-size: 13px;
+      font-family: var(--font-condensed);
+      font-size: 14px;
       font-weight: 600;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
       text-decoration: none;
       transition: all 0.4s ease;
@@ -359,18 +368,18 @@
     .btn-primary:hover {
       background: var(--color-brand-dark);
       transform: translateY(-3px);
-      box-shadow: 0 12px 30px rgba(107, 123, 58, 0.3);
+      box-shadow: 0 12px 30px rgba(139, 58, 58, 0.35);
     }
 
     .btn-outline {
       background: transparent;
       color: #fff;
-      border: 1px solid rgba(255,255,255,0.4);
+      border: 2px solid rgba(255,255,255,0.4);
     }
 
     .btn-outline:hover {
       background: rgba(255,255,255,0.1);
-      border-color: rgba(255,255,255,0.6);
+      border-color: rgba(255,255,255,0.7);
     }
 
     .hero-scroll {
@@ -383,13 +392,14 @@
       align-items: center;
       gap: 8px;
       color: rgba(255,255,255,0.6);
-      font-size: 11px;
-      letter-spacing: 0.15em;
+      font-family: var(--font-condensed);
+      font-size: 12px;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
     }
 
     .hero-scroll-line {
-      width: 1px;
+      width: 2px;
       height: 60px;
       background: linear-gradient(to bottom, rgba(255,255,255,0.6), transparent);
       animation: scrollPulse 2s ease-in-out infinite;
@@ -410,7 +420,7 @@
     .stats-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
+      gap: 2px;
       background: var(--color-line);
     }
 
@@ -427,22 +437,23 @@
 
     .stat-number {
       font-family: var(--font-display);
-      font-size: clamp(48px, 6vw, 72px);
-      font-weight: 500;
+      font-size: clamp(52px, 7vw, 80px);
       color: var(--color-brand-dark);
       line-height: 1;
       margin-bottom: var(--spacing-xs);
     }
 
     .stat-label {
-      font-size: 14px;
+      font-family: var(--font-condensed);
+      font-size: 16px;
       font-weight: 600;
       letter-spacing: 0.05em;
+      text-transform: uppercase;
       margin-bottom: var(--spacing-xs);
     }
 
     .stat-desc {
-      font-size: 14px;
+      font-size: 15px;
       color: var(--color-text-light);
       line-height: 1.6;
     }
@@ -474,13 +485,15 @@
       margin-top: var(--spacing-lg);
       padding: var(--spacing-md);
       background: linear-gradient(135deg, var(--color-cream) 0%, var(--color-warm-white) 100%);
-      border-left: 3px solid var(--color-brand);
+      border-left: 4px solid var(--color-brand);
     }
 
     .about-highlight-title {
-      font-family: var(--font-display);
-      font-size: 20px;
-      font-weight: 600;
+      font-family: var(--font-condensed);
+      font-size: 18px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
       margin-bottom: 8px;
     }
 
@@ -514,8 +527,8 @@
       position: absolute;
       top: 30px;
       right: -20px;
-      width: 120px;
-      height: 120px;
+      width: 130px;
+      height: 130px;
       background: var(--color-brand);
       color: #fff;
       display: flex;
@@ -527,13 +540,13 @@
 
     .about-badge-number {
       font-family: var(--font-display);
-      font-size: 42px;
-      font-weight: 600;
+      font-size: 48px;
       line-height: 1;
     }
 
     .about-badge-text {
-      font-size: 10px;
+      font-family: var(--font-condensed);
+      font-size: 12px;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       margin-top: 4px;
@@ -547,11 +560,11 @@
     }
 
     .services .section-label {
-      color: var(--color-accent);
+      color: var(--color-warm);
     }
 
     .services .section-label::before {
-      background: var(--color-accent);
+      background: var(--color-warm);
     }
 
     .services .section-title {
@@ -572,7 +585,7 @@
     .services-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
+      gap: 2px;
       background: var(--color-line-dark);
     }
 
@@ -590,7 +603,7 @@
       top: 0;
       left: 0;
       width: 100%;
-      height: 3px;
+      height: 4px;
       background: var(--color-brand);
       transform: scaleX(0);
       transform-origin: left;
@@ -606,21 +619,21 @@
     }
 
     .service-icon {
-      width: 48px;
-      height: 48px;
+      width: 50px;
+      height: 50px;
       margin-bottom: var(--spacing-md);
       display: flex;
       align-items: center;
       justify-content: center;
-      border: 1px solid var(--color-line-dark);
-      color: var(--color-brand-light);
+      border: 2px solid var(--color-line-dark);
+      color: var(--color-accent);
     }
 
     .service-title {
       font-family: var(--font-display);
-      font-size: 24px;
-      font-weight: 500;
+      font-size: 26px;
       margin-bottom: var(--spacing-sm);
+      letter-spacing: 0.02em;
     }
 
     .service-desc {
@@ -679,7 +692,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(to top, rgba(26,25,21,0.6), transparent 50%);
+      background: linear-gradient(to top, rgba(28,25,23,0.6), transparent 50%);
       opacity: 0;
       transition: opacity 0.4s ease;
     }
@@ -712,7 +725,7 @@
 
     .team-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(5, 1fr);
       gap: var(--spacing-md);
     }
 
@@ -728,30 +741,31 @@
       box-shadow: 0 20px 50px rgba(0,0,0,0.1);
     }
 
-    .team-photo {
+    .team-avatar {
       width: 100%;
       aspect-ratio: 1;
-      object-fit: cover;
+      background: linear-gradient(135deg, var(--color-cream) 0%, #d9d4cc 100%);
       margin-bottom: var(--spacing-md);
-      filter: grayscale(30%);
-      transition: filter 0.4s ease;
-    }
-
-    .team-member:hover .team-photo {
-      filter: grayscale(0%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 48px;
+      color: var(--color-brand);
     }
 
     .team-name {
       font-family: var(--font-display);
-      font-size: 20px;
-      font-weight: 600;
+      font-size: 22px;
       margin-bottom: 4px;
     }
 
     .team-role {
+      font-family: var(--font-condensed);
       font-size: 13px;
       color: var(--color-text-light);
-      letter-spacing: 0.05em;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
     }
 
     /* ===== TESTIMONIALS ===== */
@@ -780,9 +794,9 @@
 
     .testimonial-quote {
       font-family: var(--font-display);
-      font-size: 64px;
+      font-size: 72px;
       color: var(--color-brand);
-      line-height: 1;
+      line-height: 0.8;
       margin-bottom: var(--spacing-sm);
     }
 
@@ -795,8 +809,11 @@
     }
 
     .testimonial-author {
-      font-weight: 600;
-      font-size: 14px;
+      font-family: var(--font-condensed);
+      font-weight: 700;
+      font-size: 15px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
     }
 
     .testimonial-company {
@@ -812,11 +829,11 @@
     }
 
     .contact .section-label {
-      color: var(--color-accent);
+      color: var(--color-warm);
     }
 
     .contact .section-label::before {
-      background: var(--color-accent);
+      background: var(--color-warm);
     }
 
     .contact .section-title {
@@ -852,19 +869,20 @@
     }
 
     .contact-icon {
-      width: 48px;
-      height: 48px;
-      border: 1px solid var(--color-line-dark);
+      width: 50px;
+      height: 50px;
+      border: 2px solid var(--color-line-dark);
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--color-brand-light);
+      color: var(--color-accent);
       flex-shrink: 0;
     }
 
     .contact-label {
+      font-family: var(--font-condensed);
       font-size: 12px;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
       color: rgba(255,255,255,0.5);
       margin-bottom: 4px;
@@ -893,9 +911,10 @@
 
     .form-label {
       display: block;
-      font-size: 12px;
+      font-family: var(--font-condensed);
+      font-size: 13px;
       font-weight: 600;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
       color: rgba(255,255,255,0.7);
       margin-bottom: 8px;
@@ -955,19 +974,20 @@
     .footer-brand {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 14px;
     }
 
     .footer-logo {
-      width: 32px;
-      height: 32px;
+      width: 40px;
+      height: 40px;
       object-fit: contain;
     }
 
     .footer-name {
       font-family: var(--font-display);
-      font-size: 18px;
+      font-size: 22px;
       color: #fff;
+      letter-spacing: 0.03em;
     }
 
     .footer-links {
@@ -976,9 +996,12 @@
     }
 
     .footer-link {
-      font-size: 13px;
+      font-family: var(--font-condensed);
+      font-size: 14px;
       color: rgba(255,255,255,0.5);
       text-decoration: none;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
       transition: color 0.3s ease;
     }
 
@@ -1002,16 +1025,13 @@
       }
     }
 
-    .animate-in {
-      animation: fadeInUp 0.8s ease forwards;
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1200px) {
+      .team-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
     }
 
-    .delay-1 { animation-delay: 0.1s; }
-    .delay-2 { animation-delay: 0.2s; }
-    .delay-3 { animation-delay: 0.3s; }
-    .delay-4 { animation-delay: 0.4s; }
-
-    /* ===== RESPONSIVE ===== */
     @media (max-width: 1024px) {
       .about-grid,
       .contact-grid {
@@ -1042,7 +1062,7 @@
       }
 
       .team-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
       }
 
       .testimonials-grid {
@@ -1075,9 +1095,13 @@
         gap: var(--spacing-md);
       }
 
+      .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
       .gallery-grid {
         grid-template-columns: 1fr;
-        grid-template-rows: repeat(7, 200px);
+        grid-template-rows: repeat(5, 200px);
       }
 
       .gallery-item:nth-child(1),
@@ -1102,12 +1126,18 @@
 
       .about-badge {
         right: 10px;
-        width: 100px;
-        height: 100px;
+        width: 110px;
+        height: 110px;
       }
 
       .about-badge-number {
-        font-size: 32px;
+        font-size: 38px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .team-grid {
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -1122,7 +1152,7 @@
           <img src="logo-aka.png" alt="AKA France" class="logo-white">
           <img src="logo-aka2.png" alt="AKA France" class="logo-dark">
         </div>
-        <span class="brand-text">AKA France</span>
+        <span class="brand-text">AKA FRANCE</span>
       </a>
       <nav>
         <a href="#apropos" class="nav-link">À propos</a>
@@ -1331,24 +1361,29 @@
       </div>
       <div class="team-grid">
         <div class="team-member">
-          <img src="image4.jpg" alt="Jean Dupont" class="team-photo">
+          <div class="team-avatar">JD</div>
           <div class="team-name">Jean Dupont</div>
-          <div class="team-role">Directeur technique</div>
+          <div class="team-role">Président</div>
         </div>
         <div class="team-member">
-          <img src="image5.jpg" alt="Sophie Martin" class="team-photo">
+          <div class="team-avatar">SM</div>
           <div class="team-name">Sophie Martin</div>
-          <div class="team-role">Responsable qualité</div>
+          <div class="team-role">Finance</div>
         </div>
         <div class="team-member">
-          <img src="image6.jpg" alt="Marc Lefèvre" class="team-photo">
+          <div class="team-avatar">ML</div>
           <div class="team-name">Marc Lefèvre</div>
-          <div class="team-role">Chargé de sourcing</div>
+          <div class="team-role">Développement</div>
         </div>
         <div class="team-member">
-          <img src="image7.jpg" alt="Claire Bernard" class="team-photo">
+          <div class="team-avatar">CB</div>
           <div class="team-name">Claire Bernard</div>
-          <div class="team-role">Support clients</div>
+          <div class="team-role">Logistique</div>
+        </div>
+        <div class="team-member">
+          <div class="team-avatar">PR</div>
+          <div class="team-name">Pierre Renault</div>
+          <div class="team-role">Qualité</div>
         </div>
       </div>
     </div>
@@ -1469,7 +1504,7 @@
     <div class="container footer-inner">
       <div class="footer-brand">
         <img src="logo-aka.png" alt="AKA France" class="footer-logo">
-        <span class="footer-name">AKA France</span>
+        <span class="footer-name">AKA FRANCE</span>
       </div>
       <div class="footer-links">
         <a href="#apropos" class="footer-link">À propos</a>
@@ -1481,22 +1516,17 @@
     </div>
   </footer>
 
-  <!-- JavaScript for header scroll effect -->
+  <!-- JavaScript -->
   <script>
-    // Header scroll effect
+    // Header scroll effect - invisible to translucent
     const header = document.getElementById('header');
-    let lastScroll = 0;
 
     window.addEventListener('scroll', () => {
-      const currentScroll = window.pageYOffset;
-      
-      if (currentScroll > 80) {
+      if (window.pageYOffset > 80) {
         header.classList.add('scrolled');
       } else {
         header.classList.remove('scrolled');
       }
-      
-      lastScroll = currentScroll;
     });
 
     // Smooth reveal animations on scroll
